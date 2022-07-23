@@ -1,0 +1,21 @@
+{
+  "name": "Shopify Admin Redirect",
+  "description": "A simple extension to load Shopify admin pages from the storefront",
+  "version": "0.1",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.google.com/*"
+  ]
+}
