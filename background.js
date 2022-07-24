@@ -49,7 +49,8 @@ function iconClickAction(shopName) {
   if (!templateMatched) window.open(`https://${shopName}/admin/`);
 
   async function redirect(url, shopName, template) {
-    let response = await fetch(url + '.json');
+    console.log(url);
+    let response = await fetch(url.href.replace(url.search, '') + '.json');
     let json = await response.json();
     window.open(`https://${shopName}/admin/${template}s/${json[template].id}`);
   }
