@@ -12,6 +12,16 @@
   "background": {
     "service_worker": "background.js"
   },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "shop_name.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
   "action": {
     "default_title": "Admin Redirect",
     "default_icons": {
@@ -24,6 +34,10 @@
   "permissions": [
     "activeTab",
     "scripting",
-    "storage"
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
   ]
 }
