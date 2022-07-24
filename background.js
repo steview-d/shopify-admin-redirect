@@ -1,6 +1,26 @@
 chrome.runtime.onInstalled.addListener(() => {
   // default state goes here
   // this runs ONE TIME ONLY (unless the user reinstalls your extension)
+  chrome.storage.local.set({
+    storefronts: [
+      {
+        "fUrl": "e-liquids.com",
+        "bUrl": "e-liquids-1"
+      },
+      {
+        "fUrl": "beyouonline.co.uk",
+        "bUrl": "beyouonline"
+      },
+      {
+        "fUrl": "vapesupplier.co.uk",
+        "bUrl": "vapesupplier"
+      },
+      {
+        "fUrl": "vitalitycbd.co.uk",
+        "bUrl": "vitalitycbd"
+      }
+    ]
+}, function (){})
 });
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
