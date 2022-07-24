@@ -6,11 +6,11 @@ s.onload = function () {
 };
 (document.head || document.documentElement).appendChild(s);
 
+// ** listen for shop name
 document.addEventListener('shopNameEvent', function (e) {
   var shopName = e.detail;
-  console.log('received', shopName);
 
-  // TODO trying to send message...
+  // ** send message to background.js
   chrome.runtime.sendMessage({
     message: 'shop_name',
     payload: shopName

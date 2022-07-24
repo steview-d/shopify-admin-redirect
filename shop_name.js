@@ -1,4 +1,4 @@
-// ? Send shop name to content script
+// ** Send shop name to content script
 try {
   document.dispatchEvent(
     new CustomEvent('shopNameEvent', { detail: Shopify.shop })
