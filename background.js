@@ -17,12 +17,14 @@ let shopName;
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.message == 'shop_name') {
     shopName = request.payload;
-    return true;
+    sendResponse('success')
+    // return true;
   }
 });
 
 // ** listen for extension icon click
 chrome.action.onClicked.addListener(tab => {
+  console.log('shopName', shopName);
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
     func: iconClickAction,
