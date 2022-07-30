@@ -5,5 +5,4 @@ try {
   );
 } catch (ReferenceError) {
   // Non-shopify store - move along
-  console.log('SHOP NAME NOT FOUND...');
 }

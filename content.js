@@ -7,12 +7,17 @@ s.onload = function () {
 (document.head || document.documentElement).appendChild(s);
 
 // ** listen for shop name
-document.addEventListener('shopNameEvent', function (e) {
-  var shopName = e.detail;
+if (!document.body.classList.contains('hasEvent')) {
+  document.addEventListener('shopNameEvent', function (e) {
+    document.body.classList.add('hasEvent');
+    var shopName = e.detail;
 
-  // ** send message to background.js
-  chrome.runtime.sendMessage({
-    message: 'shop_name',
-    payload: shopName
+    // ** send message to background.js
+    if (chrome.runtime?.id !== undefined) {
+      chrome.runtime.sendMessage({
+        message: 'shop_name',
+        payload: shopName,
+      });
+    }
   });
-});
+}

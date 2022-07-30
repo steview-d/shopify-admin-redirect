@@ -14,7 +14,6 @@ chrome.runtime.onInstalled.addListener(() => {
 // });
 
 chrome.tabs.onActivated.addListener(cb => {
-  console.log(cb);
   chrome.scripting.executeScript({
     target: { tabId: cb.tabId },
     files: ['./content.js'],
@@ -33,7 +32,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 // ** listen for extension icon click
 chrome.action.onClicked.addListener(tab => {
-  console.log('shopName', typeof shopName, shopName, tab);
   if (typeof shopName === 'string' || shopName instanceof String) {
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
@@ -62,7 +60,6 @@ function iconClickAction(shopName) {
   if (!templateMatched) window.open(`https://${shopName}/admin/`);
 
   async function redirect(url, shopName, template) {
-    console.log(url);
     let response = await fetch(url.href.replace(url.search, '') + '.json');
     let json = await response.json();
     window.open(`https://${shopName}/admin/${template}s/${json[template].id}`);
